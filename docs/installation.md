@@ -141,9 +141,9 @@ This is the recommended method for most users.
 3. **Choose installation location**:
 
    **Option A: User directory** (no admin required)
-   - Create a directory: `mkdir C:\Users\YourUsername\leo` (replace `YourUsername` with your actual Windows username)
+   - Create a directory: `mkdir C:\Users\%USERNAME%\leo` (uses your current username automatically)
    - Move `leo.exe` to this directory
-   - Add to PATH: Search for "Environment Variables" → Edit user PATH → Add `C:\Users\YourUsername\leo`
+   - Add to PATH: Search for "Environment Variables" → Edit user PATH → Add `C:\Users\%USERNAME%\leo`
 
    **Option B: System directory** (requires admin)
    - Move `leo.exe` to `C:\Windows\System32` or `C:\Program Files\leo`
