@@ -27,13 +27,15 @@ jobs:
           draft: false
           prerelease: false
 
-      # Example: Upload a binary asset (uncomment and modify as needed)
+      # Note: VSCode extension assets (.vsix files) are uploaded manually
+      # from the private build repository after the release is created.
+      # Example: Upload a release asset (if needed for automation)
       # - name: Upload Release Asset
       #   uses: actions/upload-release-asset@v1
       #   env:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       #   with:
       #     upload_url: ${{ steps.create_release.outputs.upload_url }}
-      #     asset_path: ./path/to/leo-binary
-      #     asset_name: leo-linux-amd64
+      #     asset_path: ./path/to/leo-extension.vsix
+      #     asset_name: leo-vscode-extension.vsix
       #     asset_content_type: application/octet-stream
