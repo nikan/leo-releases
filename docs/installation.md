@@ -1,255 +1,244 @@
-# Installation Guide
+# Installation Guide for Leo VSCode Extension
 
-This guide provides detailed installation instructions for Leo on all supported platforms.
+This guide provides detailed installation instructions for the Leo AI Workflow Assistant extension for Visual Studio Code.
 
-## System Requirements
+## Prerequisites
 
-### Minimum Requirements
+### System Requirements
 
+- **Visual Studio Code**: Version 1.60.0 or higher
 - **Operating System**: Windows 10+, macOS 10.14+, or Linux (kernel 3.10+)
 - **Architecture**: 64-bit (x86_64 or ARM64)
-- **RAM**: 256 MB minimum
-- **Disk Space**: 50 MB for the executable
-
-### Recommended
-
-- **RAM**: 512 MB or more
-- **Disk Space**: 100 MB or more (for executable and data)
+- **RAM**: 256 MB minimum (512 MB recommended)
+- **Disk Space**: 50 MB for the extension
 
 ## Installation Methods
 
-### Method 1: Manual Installation (Recommended)
+### Method 1: VSCode Marketplace (Recommended)
 
-This is the recommended method for most users.
+This is the easiest and recommended method for most users.
 
-#### Linux
+1. **Open Visual Studio Code**
 
-1. **Download the binary**:
-   ```bash
-   curl -LO https://github.com/nikan/leo-releases/releases/latest/download/leo-linux-amd64
-   ```
+2. **Open Extensions View**:
+   - Click the Extensions icon in the Activity Bar (left sidebar)
+   - Or press `Ctrl+Shift+X` (Windows/Linux) or `Cmd+Shift+X` (macOS)
 
-2. **Download checksums** (optional but recommended):
-   ```bash
-   curl -LO https://github.com/nikan/leo-releases/releases/latest/download/checksums.txt
-   ```
+3. **Search for Leo**:
+   - Type "Leo AI Workflow Assistant" in the search box
+   - Look for the official Leo extension
 
-3. **Verify the download**:
-   ```bash
-   sha256sum leo-linux-amd64
-   cat checksums.txt | grep leo-linux-amd64
-   # Compare the two hashes - they should match
-   ```
+4. **Install**:
+   - Click the "Install" button
+   - Wait for installation to complete
 
-4. **Make executable**:
-   ```bash
-   chmod +x leo-linux-amd64
-   ```
+5. **Verify Installation**:
+   - The extension should appear in your installed extensions list
+   - You should see Leo commands when opening the Command Palette
 
-5. **Install to system path** (optional):
-   ```bash
-   sudo mv leo-linux-amd64 /usr/local/bin/leo
-   ```
+### Method 2: Manual Installation from VSIX File
 
-6. **Verify installation**:
-   ```bash
-   leo --version
-   ```
+Use this method if you want to install a specific version or if the Marketplace is unavailable.
 
-#### macOS
+#### Download the VSIX File
 
-1. **Download the binary**:
-   ```bash
-   # For Intel Macs
-   curl -LO https://github.com/nikan/leo-releases/releases/latest/download/leo-darwin-amd64
-   
-   # For Apple Silicon (M1/M2/M3)
-   curl -LO https://github.com/nikan/leo-releases/releases/latest/download/leo-darwin-arm64
-   ```
+1. **Visit the Releases Page**:
+   - Go to [https://github.com/nikan/leo-releases/releases](https://github.com/nikan/leo-releases/releases)
+   - Find the latest release or the specific version you want
 
-2. **Download checksums** (optional but recommended):
-   ```bash
-   curl -LO https://github.com/nikan/leo-releases/releases/latest/download/checksums.txt
-   ```
+2. **Download the VSIX**:
+   - Download the `.vsix` file (e.g., `leo-vscode-1.0.0.vsix`)
 
-3. **Verify the download**:
-   ```bash
-   # For Intel
-   shasum -a 256 leo-darwin-amd64
-   
-   # For Apple Silicon
-   shasum -a 256 leo-darwin-arm64
-   
-   # Compare with checksums.txt
-   cat checksums.txt | grep leo-darwin
-   ```
+3. **Download Checksums** (optional but recommended):
+   - Download `checksums.txt` from the same release
 
-4. **Remove quarantine attribute**:
-   ```bash
-   # For Intel
-   xattr -d com.apple.quarantine leo-darwin-amd64
-   
-   # For Apple Silicon
-   xattr -d com.apple.quarantine leo-darwin-arm64
-   ```
+#### Verify the Download (Optional but Recommended)
 
-5. **Make executable**:
-   ```bash
-   # For Intel
-   chmod +x leo-darwin-amd64
-   
-   # For Apple Silicon
-   chmod +x leo-darwin-arm64
-   ```
+**On Linux/macOS**:
+```bash
+# Verify the download
+sha256sum leo-vscode-1.0.0.vsix
+cat checksums.txt | grep leo-vscode
+# Compare the two hashes - they should match
+```
 
-6. **Install to system path** (optional):
-   ```bash
-   # For Intel
-   sudo mv leo-darwin-amd64 /usr/local/bin/leo
-   
-   # For Apple Silicon
-   sudo mv leo-darwin-arm64 /usr/local/bin/leo
-   ```
+**On Windows (PowerShell)**:
+```powershell
+# Compute hash
+CertUtil -hashfile leo-vscode-1.0.0.vsix SHA256
 
-7. **Verify installation**:
-   ```bash
-   leo --version
-   ```
+# Compare with checksums.txt
+Get-Content checksums.txt | Select-String "leo-vscode"
+```
 
-#### Windows
+#### Install the VSIX File
 
-1. **Download the binary**:
-   - Visit the [releases page](https://github.com/nikan/leo-releases/releases/latest)
-   - Download `leo-windows-amd64.exe`
-   - Or use PowerShell:
-     ```powershell
-     Invoke-WebRequest -Uri "https://github.com/nikan/leo-releases/releases/latest/download/leo-windows-amd64.exe" -OutFile "leo.exe"
-     ```
+**Option A: Using VSCode UI**
+1. Open Visual Studio Code
+2. Open Extensions view (`Ctrl+Shift+X` / `Cmd+Shift+X`)
+3. Click the "..." (Views and More Actions) menu at the top of the Extensions view
+4. Select "Install from VSIX..."
+5. Navigate to and select the downloaded `.vsix` file
+6. Wait for installation to complete
+7. Reload VSCode if prompted
 
-2. **Download and verify checksums** (optional but recommended):
-   ```powershell
-   # Download checksums
-   Invoke-WebRequest -Uri "https://github.com/nikan/leo-releases/releases/latest/download/checksums.txt" -OutFile "checksums.txt"
-   
-   # Compute hash
-   CertUtil -hashfile leo.exe SHA256
-   
-   # Compare with checksums.txt
-   Get-Content checksums.txt | Select-String "leo-windows"
-   ```
+**Option B: Using Command Line**
+```bash
+# Navigate to the directory containing the .vsix file
+cd ~/Downloads
 
-3. **Choose installation location**:
+# Install the extension
+code --install-extension leo-vscode-1.0.0.vsix
 
-   **Option A: User directory** (no admin required)
-   - Create a directory: `mkdir C:\Users\%USERNAME%\leo` (uses your current username automatically)
-   - Move `leo.exe` to this directory
-   - Add to PATH: Search for "Environment Variables" → Edit user PATH → Add `C:\Users\%USERNAME%\leo`
+# Verify installation
+code --list-extensions | grep -i leo
+```
 
-   **Option B: System directory** (requires admin)
-   - Move `leo.exe` to `C:\Windows\System32` or `C:\Program Files\leo`
-   - If using `C:\Program Files\leo`, add it to system PATH
-
-4. **Verify installation**:
-   ```cmd
-   leo --version
-   ```
-
-### Method 2: Using Package Managers (Coming Soon)
-
-Support for package managers is planned for future releases:
-
-- **Homebrew** (macOS/Linux): `brew install leo`
-- **Chocolatey** (Windows): `choco install leo`
-- **apt** (Debian/Ubuntu): `apt install leo`
-- **yum/dnf** (RHEL/CentOS/Fedora): `yum install leo`
+**On Windows (Command Prompt)**:
+```cmd
+cd %USERPROFILE%\Downloads
+code --install-extension leo-vscode-1.0.0.vsix
+code --list-extensions | findstr /i leo
+```
 
 ## Post-Installation
 
 ### First Run
 
-After installation, run Leo for the first time:
+After installation:
 
-```bash
-leo --version
-leo help
-```
+1. **Open Command Palette**: `Ctrl+Shift+P` (Windows/Linux) or `Cmd+Shift+P` (macOS)
+2. **Look for Leo Commands**: Type "Leo" to see available commands
+3. **Configure if needed**: Go to Settings → Extensions → Leo
 
 ### Configuration
 
-Leo may create configuration files in your home directory. Check:
+You can configure Leo through VSCode Settings:
 
-- Linux/macOS: `~/.leo/` or `~/.config/leo/`
-- Windows: `%APPDATA%\leo\` or `%USERPROFILE%\.leo\`
+1. Open Settings: `File → Preferences → Settings` or `Ctrl+,` / `Cmd+,`
+2. Search for "Leo"
+3. Adjust settings as needed
 
-### Uninstallation
+Configuration may be stored in:
+- VSCode user settings: `settings.json`
+- Workspace settings (if configured per workspace)
 
-To remove Leo:
+### Verifying Installation
 
-1. Delete the binary from where you installed it:
-   ```bash
-   # Linux/macOS
-   sudo rm /usr/local/bin/leo
-   
-   # Windows
-   # Delete leo.exe from its installation directory
-   ```
+To verify Leo is installed correctly:
 
-2. Remove configuration files (optional):
-   ```bash
-   # Linux/macOS
-   rm -rf ~/.leo ~/.config/leo
-   
-   # Windows (PowerShell)
-   Remove-Item -Recurse -Force $env:APPDATA\leo
-   ```
+1. Open Extensions view (`Ctrl+Shift+X` / `Cmd+Shift+X`)
+2. Search for "Leo" in installed extensions
+3. Check that the extension is enabled
+4. Open Command Palette and search for Leo commands
+
+## Updating the Extension
+
+### Automatic Updates (Marketplace Installation)
+
+If you installed from the VSCode Marketplace:
+- VSCode will automatically check for updates
+- You'll see an update notification when a new version is available
+- Click "Update" to install the latest version
+
+### Manual Updates (VSIX Installation)
+
+If you installed from a VSIX file:
+1. Download the latest `.vsix` from the [releases page](https://github.com/nikan/leo-releases/releases)
+2. Follow the manual installation steps above
+3. The new version will replace the old one
+
+## Uninstallation
+
+### Using VSCode UI
+
+1. Open Extensions view (`Ctrl+Shift+X` / `Cmd+Shift+X`)
+2. Find "Leo" in your installed extensions
+3. Click the gear icon next to the extension
+4. Select "Uninstall"
+5. Reload VSCode if prompted
+
+### Using Command Line
+
+```bash
+code --uninstall-extension <extension-id>
+```
+
+Replace `<extension-id>` with Leo's extension identifier (found in the Extensions view).
+
+### Removing Configuration (Optional)
+
+To completely remove Leo configuration:
+
+**Linux/macOS**:
+```bash
+# Remove VSCode extension data
+rm -rf ~/.vscode/extensions/*leo*/
+rm -rf ~/.config/Code/User/globalStorage/*leo*/
+```
+
+**Windows (PowerShell)**:
+```powershell
+# Remove VSCode extension data
+Remove-Item -Recurse -Force "$env:USERPROFILE\.vscode\extensions\*leo*"
+Remove-Item -Recurse -Force "$env:APPDATA\Code\User\globalStorage\*leo*"
+```
 
 ## Troubleshooting
 
-### Linux/macOS: Permission Denied
+### Extension Not Showing in Marketplace
 
-If you get "Permission denied" when running Leo:
-```bash
-chmod +x leo-linux-amd64  # or leo-darwin-amd64/leo-darwin-arm64
-```
+If you can't find Leo in the VSCode Marketplace:
+- Check your internet connection
+- Try reloading VSCode
+- Install manually from a `.vsix` file
 
-### macOS: "Cannot be opened because it is from an unidentified developer"
+### Installation from VSIX Fails
 
-Remove the quarantine attribute:
-```bash
-xattr -d com.apple.quarantine leo-darwin-amd64
-```
+If VSIX installation fails:
+1. Check that the `.vsix` file is not corrupted (verify checksums)
+2. Ensure you have the latest version of VSCode
+3. Try closing and reopening VSCode
+4. Check VSCode logs: `Help → Toggle Developer Tools → Console`
 
-Or go to System Preferences → Security & Privacy → General, and click "Open Anyway".
+### Extension Not Loading
 
-### Windows: "Windows protected your PC"
-
-Click "More info" and then "Run anyway". This is expected for new executables.
+If the extension installs but doesn't load:
+1. Check that the extension is enabled in Extensions view
+2. Look for error messages in: `Help → Toggle Developer Tools → Console`
+3. Try disabling other extensions to check for conflicts
+4. Reinstall the extension
 
 ### Command Not Found
 
-If `leo` is not found after installation:
+If Leo commands don't appear in Command Palette:
+1. Verify the extension is installed and enabled
+2. Reload VSCode: `Developer: Reload Window` from Command Palette
+3. Check for error messages in the Output panel (`View → Output`)
 
-1. Check that the binary is in your PATH
-2. Try using the full path to the binary
-3. Restart your terminal/command prompt
-4. On Linux/macOS, check with: `which leo`
-5. On Windows, check with: `where leo`
+### Compatibility Issues
 
-### Verification Failed
+If you experience compatibility issues:
+- Check the [releases page](https://github.com/nikan/leo-releases/releases) for version requirements
+- Ensure your VSCode version meets the minimum requirements
+- Check for known issues in the release notes
 
-If checksum verification fails:
+## Platform-Specific Notes
 
-1. Re-download the binary (the download may have been corrupted)
-2. Ensure you're comparing the correct file against the correct checksum
-3. Report the issue if the problem persists
+### Windows
 
-## Updating Leo
+- No special configuration required
+- Windows Defender may scan the extension on first install (this is normal)
 
-To update Leo:
+### macOS
 
-1. Download the latest version using the installation instructions above
-2. Replace the old binary with the new one
-3. Verify the new version: `leo --version`
+- No special configuration required
+- Gatekeeper security should not affect VSCode extensions
+
+### Linux
+
+- No special configuration required
+- Ensure VSCode has necessary permissions
 
 ## Getting Help
 
@@ -257,11 +246,12 @@ If you encounter issues:
 
 1. Check this installation guide
 2. Review the [FAQ](./README.md#frequently-asked-questions)
-3. Search existing GitHub Issues
+3. Search existing [GitHub Issues](https://github.com/nikan/leo-releases/issues)
 4. Create a new issue with:
+   - Your VSCode version (`Help → About`)
    - Your operating system and version
-   - Leo version (if installed)
-   - Complete error message
+   - Leo extension version (if installed)
+   - Complete error message or description
    - Steps to reproduce
 
 ## Next Steps
@@ -269,5 +259,6 @@ If you encounter issues:
 After successful installation:
 
 - Read the [User Guide](./README.md#user-guide)
-- Run `leo help` to see available commands
+- Explore Leo commands in the Command Palette
+- Configure Leo settings to match your preferences
 - Check the [documentation](./README.md) for usage examples

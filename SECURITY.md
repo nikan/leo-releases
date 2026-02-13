@@ -2,14 +2,14 @@
 
 ## Supported Versions
 
-We take the security of Leo seriously. The following versions are currently supported with security updates:
+We take the security of the Leo VSCode extension seriously. The following versions are currently supported with security updates:
 
 | Version | Supported          |
 | ------- | ------------------ |
 | Latest  | :white_check_mark: |
 | < Latest| :x:                |
 
-We recommend always using the latest version of Leo to ensure you have the latest security patches.
+We recommend always using the latest version of the Leo extension to ensure you have the latest security patches.
 
 ## Reporting a Vulnerability
 
@@ -66,40 +66,41 @@ When a security vulnerability is confirmed:
 
 ## Security Best Practices
 
-When using Leo, we recommend:
+When using the Leo VSCode extension, we recommend:
 
-1. **Keep Updated**: Always use the latest version of Leo
-2. **Verify Downloads**: Always verify checksums of downloaded binaries
-3. **Secure Systems**: Run Leo on systems with up-to-date security patches
-4. **Review Permissions**: Be aware of the permissions and access Leo requires
+1. **Keep Updated**: Always use the latest version of the extension
+2. **Verify Downloads**: When installing from VSIX files, always verify checksums
+3. **Secure Systems**: Use Leo on systems with up-to-date security patches
+4. **Review Permissions**: Be aware of the permissions the extension requires in VSCode
 5. **Report Issues**: Report any suspicious behavior immediately
 
 ## Known Security Considerations
 
-### Binary Verification
+### Extension Verification
 
-Always verify the integrity of downloaded binaries using the provided SHA256 checksums. See the [README](./README.md) for verification instructions.
+When manually installing from VSIX files, always verify the integrity of downloaded packages using the provided SHA256 checksums. See the [README](./README.md) for verification instructions.
 
 ### Update Notifications
 
-We recommend checking for updates regularly:
+We recommend keeping auto-updates enabled in VSCode, or regularly checking for updates:
 
-```bash
-# Check your current version
-leo --version
+- In VSCode, go to Extensions view and look for updates
+- Visit the [releases page](https://github.com/nikan/leo-releases/releases/latest) for the latest version
 
-# Visit the releases page for the latest version
-# https://github.com/nikan/leo-releases/releases/latest
-```
+### Build Source
+
+**Important**: The Leo extension is built in a private repository. Release artifacts in this public repository are the official, trusted distribution method. Only install the extension from:
+- The official VSCode Marketplace
+- Official releases from this GitHub repository (`.vsix` files)
 
 ## Scope
 
 This security policy applies to:
 
-- Official Leo releases distributed through this repository
-- The binaries and associated documentation
+- Official Leo VSCode extension releases distributed through this repository
+- The extension packages (`.vsix` files) and associated documentation
 
-For issues related to the Leo source code or development, please refer to the main repository's security policy.
+For issues related to the Leo source code or development (which occurs in a private repository), security reports should still be submitted through this repository's security reporting mechanism.
 
 ## Contact
 
