@@ -27,11 +27,11 @@ Instead, please report security vulnerabilities using one of the following metho
 2. Click "Report a vulnerability"
 3. Fill out the form with details about the vulnerability
 
-#### Option 2: Email
+#### Option 2: Direct Contact
 
-Send an email to: **security@leo-project.dev** (if available)
+If GitHub Security Advisories are not available, you can open a private discussion or create an issue marked as security-related.
 
-Include the following information:
+When reporting, include the following information:
 - Description of the vulnerability
 - Steps to reproduce the issue
 - Potential impact of the vulnerability
