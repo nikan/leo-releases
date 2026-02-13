@@ -1,0 +1,47 @@
+# Executables and Binaries
+# These should be distributed via GitHub Releases, not committed to the repository
+
+# Compiled executables (general)
+*.exe
+*.dll
+*.so
+*.dylib
+*.app
+
+# Linux/Unix executables
+*.out
+*.bin
+leo
+leo-*
+
+# macOS executables and bundles
+*.dmg
+*.pkg
+
+# Windows installers
+*.msi
+*.msix
+
+# Archives (releases are typically distributed as archives)
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.tar.bz2
+*.tbz2
+*.tar.xz
+*.txz
+*.rar
+*.7z
+
+# Build artifacts
+build/
+dist/
+target/
+out/
+bin/
+
+# Temporary files
+*.tmp
+*.temp
+*.log
