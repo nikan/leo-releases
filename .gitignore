@@ -5,8 +5,11 @@
 *.dylib
 *.a
 *.lib
+
+# Leo binaries (all platforms)
 leo
 leo-*
+*-binary
 !leo-releases
 
 # Compressed files (releases)
