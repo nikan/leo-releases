@@ -1,0 +1,79 @@
+# Binaries and executables
+*.exe
+*.dll
+*.so
+*.dylib
+*.a
+*.lib
+
+# Leo binaries (all platforms)
+leo
+leo-*
+*-binary
+!leo-releases
+
+# Compressed files (releases)
+*.zip
+*.tar.gz
+*.tgz
+*.tar.bz2
+*.tar.xz
+*.rar
+*.7z
+
+# Build artifacts
+dist/
+build/
+target/
+out/
+bin/
+
+# OS specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.*.swp
+.*.swo
+
+# Temporary files
+*.tmp
+*.temp
+tmp/
+temp/
+.tmp/
+
+# Logs
+*.log
+logs/
+
+# Package manager files
+node_modules/
+vendor/
+
+# Local configuration
+.env
+.env.local
+*.local
+
+# Test coverage
+coverage/
+*.coverprofile
+
+# Security and sensitive data
+*.key
+*.pem
+*.cert
+credentials/
+secrets/
