@@ -33,15 +33,15 @@ Each release includes checksums for verification. Download the `checksums.txt` f
 curl -LO https://github.com/nikan/leo-releases/releases/latest/download/checksums.txt
 
 # Verify the download
-sha256sum leo-vscode-extension.vsix
-cat checksums.txt | grep leo-vscode-extension.vsix
+sha256sum leo-*.vsix
+cat checksums.txt | grep .vsix
 ```
 
 ### Verify on Windows
 
 ```powershell
 # Download checksums.txt first, then:
-CertUtil -hashfile leo-vscode-extension.vsix SHA256
+CertUtil -hashfile leo-*.vsix SHA256
 # Compare the output with the hash in checksums.txt
 ```
 
