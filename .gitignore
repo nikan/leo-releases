@@ -1,16 +1,15 @@
-<<<<<<< copilot/keep-releases-out-of-repo
+# VSCode Extension Files
+# Extension packages should be distributed via GitHub Releases
+*.vsix
+
 # Executables and Binaries
 # These should be distributed via GitHub Releases, not committed to the repository
-
-# Compiled executables (general)
-=======
-# Binaries and executables
->>>>>>> main
 *.exe
 *.dll
 *.so
 *.dylib
-<<<<<<< copilot/keep-releases-out-of-repo
+*.a
+*.lib
 *.app
 
 # Linux/Unix executables
@@ -18,6 +17,7 @@
 *.bin
 leo
 leo-*
+*-binary
 
 # macOS executables and bundles
 *.dmg
@@ -36,44 +36,16 @@ leo-*
 *.tbz2
 *.tar.xz
 *.txz
-=======
-*.a
-*.lib
-
-# Leo binaries (all platforms)
-leo
-leo-*
-*-binary
-!leo-releases
-
-# Compressed files (releases)
-*.zip
-*.tar.gz
-*.tgz
-*.tar.bz2
-*.tar.xz
->>>>>>> main
 *.rar
 *.7z
 
 # Build artifacts
-<<<<<<< copilot/keep-releases-out-of-repo
 build/
 dist/
-=======
-dist/
-build/
->>>>>>> main
 target/
 out/
 bin/
 
-<<<<<<< copilot/keep-releases-out-of-repo
-# Temporary files
-*.tmp
-*.temp
-*.log
-=======
 # OS specific files
 .DS_Store
 .DS_Store?
@@ -123,4 +95,3 @@ coverage/
 *.cert
 credentials/
 secrets/
->>>>>>> main
